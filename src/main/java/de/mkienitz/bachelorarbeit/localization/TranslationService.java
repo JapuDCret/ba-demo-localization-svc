@@ -1,13 +1,15 @@
 package de.mkienitz.bachelorarbeit.localization;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.Logger;
 
 public class TranslationService {
 
-    private static Logger logger = Logger.getLogger(TranslationService.class.getName());
+    private static Logger log = LoggerFactory.getLogger(TranslationService.class.getName());
 
     private static final Map<String, Map<String, String>> TRANSLATIONS = new TreeMap<String, Map<String, String>>()
     {{
@@ -26,7 +28,7 @@ public class TranslationService {
     public Map<String, Map<String, String>> getTranslations() {
         String isIllPod = System.getenv("IS_ILL_POD");
 
-        logger.info("getTranslations(): env.IS_ILL_POD = " + isIllPod);
+        log.info("getTranslations(): env.IS_ILL_POD = " + isIllPod);
 
         if("true".equalsIgnoreCase(isIllPod)) {
             return null;

@@ -1,21 +1,16 @@
 package de.mkienitz.bachelorarbeit.localization;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import javax.json.Json;
-import javax.json.JsonBuilderFactory;
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
-import javax.json.bind.JsonbConfig;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Random;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +19,7 @@ import java.util.logging.Logger;
 @Singleton
 public class TranslationResource {
 
-    private static Logger logger = Logger.getLogger(TranslationResource.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(TranslationResource.class.getName());
 
     @Inject
     private TranslationService service;
