@@ -24,8 +24,8 @@ COPY --chown=1001:0 \
 
 # change directory from which server.xml is copied
 COPY --chown=1001:0 \
-    target/liberty/wlp/usr/servers/$ARTIFACT_NAME/server.xml \
-    /config/
+    target/liberty/wlp/usr/servers/$ARTIFACT_NAME/configDropins/overrides/ \
+    /config/configDropins/overrides/
 
 COPY --chown=1001:0 \
     target/$ARTIFACT_NAME.war \
