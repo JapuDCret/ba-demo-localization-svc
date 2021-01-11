@@ -5,7 +5,8 @@
         <feature>microProfile-3.3</feature>
     </featureManager>
 
-    <variable name="project.name" defaultValue="microprofile-service" />
+    <variable name="project.name" defaultValue="null" />
+    <variable name="jwt.issuer" defaultValue="null" />
     <variable name="default.http.port" defaultValue="9080" />
     <variable name="default.https.port" defaultValue="9443" />
 

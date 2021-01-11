@@ -56,7 +56,7 @@ Start "Ill" Pod
 
 View current log output
 
-    docker logs
+    docker logs localization-svc
 
 See available containers
 

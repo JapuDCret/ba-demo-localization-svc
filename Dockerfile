@@ -13,7 +13,7 @@ LABEL \
   org.opencontainers.image.version="$VERSION" \
   org.opencontainers.image.revision="$REVISION" \
   vendor="Open Liberty" \
-  name="inventory" \
+  name="$ARTIFACT_NAME" \
   version="$VERSION-$REVISION" \
   summary="The $ARTIFACT_NAME microservice" \
   description="This image contains the $ARTIFACT_NAME microservice running with the Open Liberty runtime."
