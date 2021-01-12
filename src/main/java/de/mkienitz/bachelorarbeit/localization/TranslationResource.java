@@ -26,7 +26,7 @@ public class TranslationResource {
 
     @GET
     @Operation(description = "Get translations")
-    @Produces(MediaType.APPLICATION_JSON + "; charset=UTF-8")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getTranslations() {
         return Response.ok(service.getTranslations()).build();
     }

@@ -45,7 +45,7 @@ Stop & Remove
 
 Start "Ill" Pod
 
-    docker run -d --name localization-svc -p 9085:9080 japu/localization-svc --env IS_ILL_POD=true
+    docker run -d --name localization-svc --env IS_ILL_POD=true --net=bridge -p 9085:9080 japu/localization-svc
 
 ### Publish Image
 
