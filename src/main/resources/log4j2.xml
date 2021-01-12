@@ -7,7 +7,7 @@
     </Appenders>
     <Loggers>
         <!-- avoid duplicated logs with additivity=false -->
-        <Logger name="de.mkienitz.bachelorarbeit" level="debug">
+        <Logger name="de.mkienitz.bachelorarbeit" level="debug" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
         <Root level="error">
