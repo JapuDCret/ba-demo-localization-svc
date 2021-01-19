@@ -1,6 +1,7 @@
 package de.mkienitz.bachelorarbeit.localization;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +27,7 @@ public class TranslationResource {
 
     @GET
     @Operation(description = "Get translations")
+    @Traced(operationName = "TranslationResource.getTranslations")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTranslations() {
         return Response.ok(service.getTranslations()).build();

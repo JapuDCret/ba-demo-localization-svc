@@ -1,8 +1,11 @@
 package de.mkienitz.bachelorarbeit.localization;
 
+import io.opentracing.Tracer;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
@@ -25,12 +28,24 @@ public class TranslationService {
         }});
     }};
 
+    @Inject
+    Tracer tracer;
+
+    @Traced(operationName = "TranslationService.getTranslations")
     public Map<String, Map<String, String>> getTranslations() {
         String isIllPod = System.getenv("IS_ILL_POD");
 
         log.info("getTranslations(): env.IS_ILL_POD = " + isIllPod);
 
         if("true".equalsIgnoreCase(isIllPod)) {
+            log.info("getTranslations(): configuration is invalid, returning null");
+
+            tracer.activeSpan()
+                    .log("configuration is invalid")
+                    .setTag("component", "configuration")
+                    .setTag("error", true)
+                    .finish();
+
             return null;
         }
 
