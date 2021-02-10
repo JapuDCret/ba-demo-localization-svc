@@ -5,22 +5,19 @@ import org.eclipse.microprofile.opentracing.Traced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-/**
- *
- */
 @Path("/translations")
-@Singleton
+@RequestScoped
 public class TranslationResource {
 
-    private static Logger logger = LoggerFactory.getLogger(TranslationResource.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(TranslationResource.class.getName());
 
     @Inject
     private TranslationService service;

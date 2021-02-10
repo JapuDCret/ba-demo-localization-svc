@@ -5,14 +5,16 @@ import org.eclipse.microprofile.opentracing.Traced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
+@ApplicationScoped
 public class TranslationService {
 
-    private static Logger log = LoggerFactory.getLogger(TranslationService.class.getName());
+    private static final Logger log = LoggerFactory.getLogger(TranslationService.class.getName());
 
     private static final Map<String, Map<String, String>> TRANSLATIONS = new TreeMap<String, Map<String, String>>()
     {{
@@ -29,7 +31,7 @@ public class TranslationService {
     }};
 
     @Inject
-    Tracer tracer;
+    private Tracer tracer;
 
     @Traced(operationName = "TranslationService.getTranslations")
     public Map<String, Map<String, String>> getTranslations() {
