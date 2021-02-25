@@ -1,9 +1,7 @@
-package de.mkienitz.bachelorarbeit.localization;
+package de.mkienitz.bachelorarbeit.localization.application;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.opentracing.Traced;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,10 +15,8 @@ import javax.ws.rs.core.Response;
 @RequestScoped
 public class TranslationResource {
 
-    private static final Logger logger = LoggerFactory.getLogger(TranslationResource.class.getName());
-
     @Inject
-    private TranslationService service;
+    private TranslationApplicationService service;
 
     @GET
     @Operation(description = "Get translations")
